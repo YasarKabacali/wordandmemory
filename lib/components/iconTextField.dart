@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import '../constants.dart';
 
 class IconTextField extends StatelessWidget {
@@ -9,7 +7,7 @@ class IconTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.0,
+      height: 40.0,
       child: Icon(
         icon,
         color: Color(0xFFFFCDA3),

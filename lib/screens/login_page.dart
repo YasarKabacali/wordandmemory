@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
 import 'package:word_and_memory/components/loginText.dart';
-
-import 'package:word_and_memory/components/loginTextField.dart';
+import 'package:word_and_memory/components/textField.dart';
 import 'package:word_and_memory/constants.dart';
+import 'package:word_and_memory/screens/register_page.dart';
+import 'main_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,67 +24,65 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SizedBox(
-              height: 50,
-            ),
+            kSizedBoxFifty,
             Row(
               children: <Widget>[
                 Expanded(
                     flex: 1, child: IconTextField(icon: FontAwesomeIcons.at)),
                 Expanded(
                     flex: 5,
-                    child: LoginTextField(
+                    child: customTextField(
                       labelTextField: "E-MAIL",
+                      showText: false,
                     )),
               ],
             ),
-            SizedBox(
-              height: 50.0,
-            ),
+            kSizedBoxFifty,
             Row(
               children: <Widget>[
                 Expanded(
                     flex: 1, child: IconTextField(icon: FontAwesomeIcons.lock)),
                 Expanded(
                     flex: 5,
-                    child: LoginTextField(
+                    child: customTextField(
                       labelTextField: "PASSWORD",
+                      showText: true,
                     )),
               ],
             ),
-            SizedBox(
-              height: 20.0,
-            ),
+            kSizedBoxTwenty,
             LoginText(
-              loginText: "Forget Passowrd?",textStyle: kLoginPageText,
+              loginText: "Forget Passowrd?",
+              textStyle: kLoginPageText,
+              onPress: () {},
             ),
-            SizedBox(
-              height: 20.0,
+            kSizedBoxTwenty,
+            LrButton(
+              buttonText: "Log in",
+              onPress: () {
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainPage()),
+                    );
+              },
             ),
-            ButtonTheme(
-              height: 50.0,
-              child: RaisedButton(
-                onPressed: () {},
-                child: Text("Log in"),
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(18.0),
-                ),
-                color: Color(0xFFFFCDA3),
-              ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
+            kSizedBoxTwenty,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                LoginText(loginText: "Not a member ?",textStyle: kLoginPageText),
+                LoginText(
+                    loginText: "Not a member ?", textStyle: kLoginPageText),
                 SizedBox(
                   width: 5.0,
                 ),
                 LoginText(
                   loginText: "Join now",
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterPage()),
+                    );
+                  },
                   textStyle: kJoinNow,
                 ),
               ],
