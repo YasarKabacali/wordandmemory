@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:word_and_memory/constants.dart';
 
 
-class customTextField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String labelTextField;
   final bool showText;
-  customTextField({this.labelTextField, this.showText});
+  CustomTextField({this.labelTextField, this.showText});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class customTextField extends StatelessWidget {
       child: TextField(
         textAlign: TextAlign.left,
         obscureText: showText,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white,decoration: TextDecoration.none),
         cursorColor: Colors.white,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(left: 10.0, bottom: 15.0),

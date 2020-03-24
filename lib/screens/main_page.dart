@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/reusableCard.dart';
+import 'package:word_and_memory/constants.dart';
+
+import 'add_word_page.dart';
+
 //TODO Ekrana cumle eklemeyi nasıl monte edelim diye sor
 //Bir ekran uzerinde kotu gorunebilir cunku
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kMainPageScaffoldColor,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            makeSpace(),
             Expanded(
               child: Row(
                 children: <Widget>[
@@ -20,7 +24,13 @@ class MainPage extends StatelessWidget {
                     child: ReusableCard(
                       cardIcon: FontAwesomeIcons.plusCircle,
                       cardText: "Create a word",
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AddWordPage()),
+                    );
+                      },
+                      edgeInsets: EdgeInsets.only(bottom: 8.0, right: 8.0),
                     ),
                   ),
                   Expanded(
@@ -28,12 +38,12 @@ class MainPage extends StatelessWidget {
                       cardIcon: FontAwesomeIcons.list,
                       cardText: "See the list",
                       onPress: () {},
+                      edgeInsets: EdgeInsets.only(bottom: 8.0, left: 8.0),
                     ),
                   ),
                 ],
               ),
             ),
-            makeSpace(),
             Expanded(
               child: Row(
                 children: <Widget>[
@@ -42,6 +52,7 @@ class MainPage extends StatelessWidget {
                       cardIcon: FontAwesomeIcons.redo,
                       cardText: "Test your memory",
                       onPress: () {},
+                      edgeInsets: EdgeInsets.only(top: 8.0, right: 8.0),
                     ),
                   ),
                   Expanded(
@@ -49,21 +60,15 @@ class MainPage extends StatelessWidget {
                       cardIcon: FontAwesomeIcons.exclamationCircle,
                       cardText: "Wrong words",
                       onPress: () {},
+                      edgeInsets: EdgeInsets.only(top: 8.0, left: 8.0),
                     ),
                   ),
                 ],
               ),
             ),
-            makeSpace(),
           ],
         ),
       ),
     );
-  }
-
-  Expanded makeSpace() {
-    return Expanded(
-            child: Container(),
-          );
   }
 }

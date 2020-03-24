@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_and_memory/constants.dart';
 class LrButton extends StatelessWidget {
   final String buttonText;
   final Function onPress;
@@ -13,7 +14,7 @@ class LrButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(18.0),
         ),
-        color: Color(0xFFFFCDA3),
+        color: kButtonColor,
       ),
     );
   }

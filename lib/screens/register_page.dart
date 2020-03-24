@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/LrButton.dart';
+import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
-import 'package:word_and_memory/components/textField.dart';
 import 'package:word_and_memory/constants.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -27,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     flex: 1, child: IconTextField(icon: FontAwesomeIcons.user)),
                 Expanded(
                     flex: 5,
-                    child: customTextField(
+                    child: CustomTextField(
                       labelTextField: "FULLNAME",
                       showText: false,
                     )),
@@ -40,7 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     flex: 1, child: IconTextField(icon: FontAwesomeIcons.at)),
                 Expanded(
                     flex: 5,
-                    child: customTextField(
+                    child: CustomTextField(
                       labelTextField: "E-MAIL",
                       showText: false,
                     )),
@@ -53,7 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     flex: 1, child: IconTextField(icon: FontAwesomeIcons.lock)),
                 Expanded(
                     flex: 5,
-                    child: customTextField(
+                    child: CustomTextField(
                       labelTextField: "PASSWORD",
                       showText: true,
                     )),

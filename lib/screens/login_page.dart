@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/LrButton.dart';
+import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
 import 'package:word_and_memory/components/loginText.dart';
-import 'package:word_and_memory/components/textField.dart';
 import 'package:word_and_memory/constants.dart';
 import 'package:word_and_memory/screens/register_page.dart';
 import 'main_page.dart';
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
                     flex: 1, child: IconTextField(icon: FontAwesomeIcons.at)),
                 Expanded(
                     flex: 5,
-                    child: customTextField(
+                    child: CustomTextField(
                       labelTextField: "E-MAIL",
                       showText: false,
                     )),
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                     flex: 1, child: IconTextField(icon: FontAwesomeIcons.lock)),
                 Expanded(
                     flex: 5,
-                    child: customTextField(
+                    child: CustomTextField(
                       labelTextField: "PASSWORD",
                       showText: true,
                     )),
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
             kSizedBoxTwenty,
             LoginText(
               loginText: "Forget Passowrd?",
-              textStyle: kLoginPageText,
+              textStyle: kLoginPageTextStyle,
               onPress: () {},
             ),
             kSizedBoxTwenty,
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 LoginText(
-                    loginText: "Not a member ?", textStyle: kLoginPageText),
+                    loginText: "Not a member ?", textStyle: kLoginPageTextStyle),
                 SizedBox(
                   width: 5.0,
                 ),
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       MaterialPageRoute(builder: (context) => RegisterPage()),
                     );
                   },
-                  textStyle: kJoinNow,
+                  textStyle: kJoinNowTextStyle,
                 ),
               ],
             ),
