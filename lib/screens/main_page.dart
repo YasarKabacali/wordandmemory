@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/reusableCard.dart';
 import 'package:word_and_memory/constants.dart';
-
+import 'package:word_and_memory/screens/word_and_sen_list_page.dart';
 import 'add_word_page.dart';
 
-//TODO Ekrana cumle eklemeyi nasıl monte edelim diye sor
-//Bir ekran uzerinde kotu gorunebilir cunku
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,9 +24,10 @@ class MainPage extends StatelessWidget {
                       cardText: "Create a word",
                       onPress: () {
                         Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AddWordPage()),
-                    );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddWordPage()),
+                        );
                       },
                       edgeInsets: EdgeInsets.only(bottom: 8.0, right: 8.0),
                     ),
@@ -37,7 +36,13 @@ class MainPage extends StatelessWidget {
                     child: ReusableCard(
                       cardIcon: FontAwesomeIcons.list,
                       cardText: "See the list",
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WordAndSenListPage()),
+                        );
+                      },
                       edgeInsets: EdgeInsets.only(bottom: 8.0, left: 8.0),
                     ),
                   ),

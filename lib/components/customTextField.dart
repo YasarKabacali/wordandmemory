@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         border: Border(
-          bottom: kTextFieldBorderSide,
+          bottom: kCustomTextFieldBorderSide,
         ),
       ),
     );

@@ -14,8 +14,8 @@ class IconTextField extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         border: Border(
-          bottom: kTextFieldBorderSide,
-          right: kTextFieldBorderSide,
+          bottom: kCustomTextFieldBorderSide,
+          right: kCustomTextFieldBorderSide,
         ),
       ),
     );

@@ -13,8 +13,8 @@ class SymbolTextField extends StatelessWidget {
       child: Text(text,style: textStyle,textAlign: TextAlign.center,),
       decoration: BoxDecoration(
         border: Border(
-          bottom: kTextFieldBorderSide,
-          right: kTextFieldBorderSide,
+          bottom: kCustomTextFieldBorderSide,
+          right: kCustomTextFieldBorderSide,
         ),
       ),
     );

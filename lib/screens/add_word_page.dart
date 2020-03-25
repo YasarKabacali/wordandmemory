@@ -5,40 +5,47 @@ import 'package:word_and_memory/components/symbolTextField.dart';
 import 'package:word_and_memory/constants.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+//TODO alert text alanında harf kısıtlaması olacak mı ?
 class AddWordPage extends StatefulWidget {
   @override
   _AddWordPageState createState() => _AddWordPageState();
 }
 
 class _AddWordPageState extends State<AddWordPage> {
-  
   _onAlertWithCustomContentPressed(context) {
     Alert(
         context: context,
-        title: "LOGIN",
-        content: Column(
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                icon: Icon(Icons.account_circle),
-                labelText: 'Username',
+        title: "SENTENCE",
+        style: AlertStyle(
+            backgroundColor: kScaffoldBackgroundColor,
+            titleStyle: kAlertTitleTextStyle),
+        content: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                cursorColor: Colors.white,
+                maxLines: 3,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: kAlertTextFieldBorderSide,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: kAlertTextFieldBorderSide,
+                  )
+                ),
               ),
-            ),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                icon: Icon(Icons.lock),
-                labelText: 'Password',
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
         buttons: [
           DialogButton(
+            color: kPrimaryColor,
             onPressed: () => Navigator.pop(context),
             child: Text(
-              "LOGIN",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              "ADD",
+              style: TextStyle(color: Colors.black, fontSize: 20),
             ),
           )
         ]).show();
