@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: kScaffoldBackgroundColor,
       ),
-      home: WordAndSenListPage(),
+      home: LoginPage(),
     );
   }
 }
