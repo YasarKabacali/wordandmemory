@@ -5,7 +5,7 @@ import 'package:word_and_memory/components/symbolTextField.dart';
 import 'package:word_and_memory/constants.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-//TODO alert text alanında harf kısıtlaması olacak mı ?
+
 class AddWordPage extends StatefulWidget {
   @override
   _AddWordPageState createState() => _AddWordPageState();
@@ -63,6 +63,7 @@ class _AddWordPageState extends State<AddWordPage> {
           children: <Widget>[
             Row(
               children: <Widget>[
+                //Text alanında harf sayisinda kisitlamasi olacak mi
                 Expanded(
                   flex: 1,
                   child: SymbolTextField(

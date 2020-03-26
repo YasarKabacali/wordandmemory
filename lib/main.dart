@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_and_memory/constants.dart';
 import 'package:word_and_memory/screens/login_page.dart';
-import 'package:word_and_memory/screens/word_and_sen_list_page.dart';
 
 void main() => runApp(MyApp());
 
