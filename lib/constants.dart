@@ -20,12 +20,17 @@ const kSymbolTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 const kListTitleTextStyle = TextStyle(
-  color: Color(0xFFFFCDA3),
+  color: Colors.black,
   fontSize: 20.0,
   fontWeight: FontWeight.bold,
 );
+const kExpansionContentTitleTextStyle = TextStyle(
+  color: Colors.black,
+  fontSize: 18.0,
+  fontWeight: FontWeight.bold,
+);
 const kContentTextTextSyle = TextStyle(
-    color: Color(0xFF6C8583), fontSize: 15.0, fontWeight: FontWeight.bold);
+    color: Colors.black87, fontSize: 15.0, fontWeight: FontWeight.bold);
 //BorderSides
 const kCustomTextFieldBorderSide = BorderSide(color: Colors.white);
 const kAlertTextFieldBorderSide = BorderSide(color: kPrimaryColor);
@@ -47,4 +52,4 @@ const kMainPageScaffoldColor = Color(0xE6425C5A);
 const kReusableCardColor = Color(0xFF425C5A);
 const kScaffoldBackgroundColor = Color(0xFF425C5A);
 const kPrimaryColor = Color(0xFFFFCDA3);
-const kExpansionTileContentColor = Color(0xFF6C8583);
+const kExpansionTileDividerColor = Color(0xFF6C8583);

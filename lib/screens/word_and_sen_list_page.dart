@@ -9,7 +9,11 @@ class WordAndSenListPage extends StatefulWidget {
 
 class _WordAndSenListPageState extends State<WordAndSenListPage> {
   List<Word> words = [
-    Word("elma", "apple", "bu benim elmam bu benim elmam bu benim elmam bu enim elmam bu benim elmam enim elmam bu benim elmambenim elmam", "this is my apple this is my apple this is my apple this is my apple this is my apple this is my "),
+    Word(
+        "elma",
+        "apple",
+        "bu benim elmam bu benim elmam bu benim elmam bu enim elmam bu benim elmam enim elmam bu benim elmambenim elmam",
+        "this is my apple this is my apple this is my apple this is my apple this is my apple this is my "),
     Word("sandalye", "chair", "sandalyede oturuyorum",
         "Im sitting on the chair"),
     Word("gitmek", "go", "okula gideceğim", "Im gonna go to the school."),
