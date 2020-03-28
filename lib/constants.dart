@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 const kLoginPageTextStyle = TextStyle(
     color: Color(0xFF6C8583), fontSize: 18.0, fontWeight: FontWeight.bold);
 const kAddWordPageTextStyle = TextStyle(
-    color: Color(0xFFFFCDA3),
+    color: Color(0xFF6C8583),
     fontSize: 18.0,
     fontWeight: FontWeight.bold,
     decoration: TextDecoration.underline);
@@ -31,6 +31,7 @@ const kExpansionContentTitleTextStyle = TextStyle(
 );
 const kContentTextTextSyle = TextStyle(
     color: Colors.black87, fontSize: 15.0, fontWeight: FontWeight.bold);
+const kAddWordAlertTextStyle=TextStyle(color:Colors.white,fontSize: 14.0,fontWeight: FontWeight.bold);
 //BorderSides
 const kCustomTextFieldBorderSide = BorderSide(color: Colors.white);
 const kAlertTextFieldBorderSide = BorderSide(color: kPrimaryColor);

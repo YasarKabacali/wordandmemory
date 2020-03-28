@@ -61,9 +61,9 @@ class _LoginPageState extends State<LoginPage> {
               buttonText: "Log in",
               onPress: () {
                 Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MainPage()),
-                    );
+                  context,
+                  MaterialPageRoute(builder: (context) => MainPage()),
+                );
               },
             ),
             kSizedBoxTwenty,
@@ -71,7 +71,8 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 LoginText(
-                    loginText: "Not a member ?", textStyle: kLoginPageTextStyle),
+                    loginText: "Not a member ?",
+                    textStyle: kLoginPageTextStyle),
                 SizedBox(
                   width: 5.0,
                 ),

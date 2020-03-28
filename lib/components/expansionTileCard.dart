@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:word_and_memory/constants.dart';
 
+
 class ExpansionTileCard extends StatelessWidget {
   final String tr;
   final String en;
@@ -12,9 +13,9 @@ class ExpansionTileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: kScaffoldBackgroundColor,
       child: ExpansionTile(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0x33425C5A),
         trailing: Icon(
           Icons.keyboard_arrow_down,
           color: Colors.black,
@@ -52,42 +53,29 @@ class ExpansionTileCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      contentCard(tr,kExpansionContentTitleTextStyle),
+                      contentCard(tr, kExpansionContentTitleTextStyle),
                       Divider(
+                        thickness: 1.0,
                         color: kExpansionTileDividerColor,
                       ),
-                      contentCard(enSentence,kContentTextTextSyle),
+                      contentCard(enSentence, kContentTextTextSyle),
                       Divider(
+                        thickness: 1.0,
                         color: kExpansionTileDividerColor,
                       ),
-                      contentCard(trSentence,kContentTextTextSyle)
+                      contentCard(trSentence, kContentTextTextSyle)
                     ],
                   ),
                 ),
               ),
             ],
           ),
-          Container(
-            padding: EdgeInsets.only(top: 8.0, bottom: 8.0, right: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: (){},
-                    child: Icon(
-                  Icons.edit,
-                  color: kScaffoldBackgroundColor,
-                  size: 30.0,
-                )),
-              ],
-            ),
-          ),
         ],
       ),
     );
   }
 
-  Text contentCard(String content,TextStyle textStyle) {
+  Text contentCard(String content, TextStyle textStyle) {
     return Text(
       content,
       style: textStyle,

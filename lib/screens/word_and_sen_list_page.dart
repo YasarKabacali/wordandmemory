@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_and_memory/components/expansionTileCard.dart';
 import 'package:word_and_memory/model/word.dart';
-
 class WordAndSenListPage extends StatefulWidget {
   @override
   _WordAndSenListPageState createState() => _WordAndSenListPageState();
@@ -25,19 +24,28 @@ class _WordAndSenListPageState extends State<WordAndSenListPage> {
       body: new ListView.builder(
           itemCount: words.length,
           itemBuilder: (BuildContext ctxt, int index) {
-            return Column(
-              children: <Widget>[
-                ExpansionTileCard(
-                    tr: words[index].tr,
-                    en: words[index].en,
-                    trSentence: words[index].trSentence,
-                    enSentence: words[index].enSentence),
-                Divider(
-                  height: 5.0,
-                  color: Colors.black,
-                  thickness: 2.0,
-                ),
-              ],
+            return Dismissible(
+              background: Container(color: Colors.red,),
+              key: ValueKey(index),
+              onDismissed: (direction){
+                setState(() {
+                  words.removeAt(index);
+                });
+              },
+                          child: Column(
+                children: <Widget>[
+                  ExpansionTileCard(
+                      tr: words[index].tr,
+                      en: words[index].en,
+                      trSentence: words[index].trSentence,
+                      enSentence: words[index].enSentence),
+                  Divider(
+                    height: 5.0,
+                    color: Colors.black,
+                    thickness: 2.0,
+                  ),
+                ],
+              ),
             );
           }),
     );
