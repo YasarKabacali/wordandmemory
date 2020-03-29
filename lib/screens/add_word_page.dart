@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/addWordText.dart';
+import 'package:word_and_memory/components/alertTextField.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/symbolTextField.dart';
 import 'package:word_and_memory/constants.dart';
@@ -25,10 +26,12 @@ class _AddWordPageState extends State<AddWordPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              makeAlertTitle("EN Sentence"),
-              makeAlertTextField(),
-              makeAlertTitle("TR Sentence"),
-              makeAlertTextField(),
+              AlertTextField(
+                title: "En Sentence",
+              ),
+              AlertTextField(
+                title: "Tr Sentence",
+              ),
             ],
           ),
         ),
@@ -38,35 +41,13 @@ class _AddWordPageState extends State<AddWordPage> {
             onPressed: () => Navigator.pop(context),
             child: Text(
               "ADD",
-              style: TextStyle(color: Colors.black, fontSize: 18,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: kScaffoldBackgroundColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
             ),
           )
         ]).show();
-  }
-
-  TextField makeAlertTextField() {
-    return TextField(
-      cursorColor: Colors.white,
-      maxLines: 2,
-      style: TextStyle(color: Colors.white),
-      decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderSide: kAlertTextFieldBorderSide,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: kAlertTextFieldBorderSide,
-          )),
-    );
-  }
-
-  Row makeAlertTitle(String enSentence) {
-    return Row(
-      children: <Widget>[
-        Container(
-            padding: EdgeInsets.symmetric(vertical: 4.0),
-            child: Text(enSentence, style: kAddWordAlertTextStyle)),
-      ],
-    );
   }
 
   @override
@@ -92,7 +73,7 @@ class _AddWordPageState extends State<AddWordPage> {
                 Expanded(
                   flex: 5,
                   child: CustomTextField(
-                    showText: false,
+                    closeText: false,
                   ),
                 ),
               ],
@@ -110,7 +91,7 @@ class _AddWordPageState extends State<AddWordPage> {
                 Expanded(
                   flex: 5,
                   child: CustomTextField(
-                    showText: false,
+                    closeText: false,
                   ),
                 ),
               ],

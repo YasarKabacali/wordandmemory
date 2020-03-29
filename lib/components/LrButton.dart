@@ -10,7 +10,7 @@ class LrButton extends StatelessWidget {
       height: 50.0,
       child: RaisedButton(
         onPressed: onPress,
-        child: Text(buttonText),
+        child: Text(buttonText,style: TextStyle(color: kScaffoldBackgroundColor),),
         shape: RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(18.0),
         ),

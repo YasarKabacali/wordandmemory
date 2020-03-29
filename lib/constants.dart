@@ -20,18 +20,25 @@ const kSymbolTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 const kListTitleTextStyle = TextStyle(
-  color: Colors.black,
-  fontSize: 20.0,
-  fontWeight: FontWeight.bold,
-);
-const kExpansionContentTitleTextStyle = TextStyle(
-  color: Colors.black,
+  color: Color(0xFFFFCDA3),
   fontSize: 18.0,
   fontWeight: FontWeight.bold,
 );
-const kContentTextTextSyle = TextStyle(
-    color: Colors.black87, fontSize: 15.0, fontWeight: FontWeight.bold);
-const kAddWordAlertTextStyle=TextStyle(color:Colors.white,fontSize: 14.0,fontWeight: FontWeight.bold);
+const kListSubtitleTextStyle =
+    TextStyle(fontSize: 18.0, color: Color(0x99FFCDA3));
+
+const kListElementDetailCardTextStyle = TextStyle(
+    color: Color(0xFFd3d3d3), fontSize: 15.0, fontWeight: FontWeight.bold);
+const kAddWordAlertTextStyle =
+    TextStyle(color: Color(0xFFFFCDA3), fontSize: 14.0, fontWeight: FontWeight.bold);
+const kPackagePageTextStyle = TextStyle(
+    color: Color(0xFFFFCDA3), fontSize: 18.0, fontWeight: FontWeight.bold);
+const kPackagePageVisibilityTextStyle =
+    TextStyle(fontSize: 18.0, color: kPrimaryColor);
+const kPackagePageRadioTextStyle = TextStyle(
+    fontSize: 16.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
+const kPackageListTextStyle = TextStyle(
+    fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
 //BorderSides
 const kCustomTextFieldBorderSide = BorderSide(color: Colors.white);
 const kAlertTextFieldBorderSide = BorderSide(color: kPrimaryColor);
@@ -53,4 +60,3 @@ const kMainPageScaffoldColor = Color(0xE6425C5A);
 const kReusableCardColor = Color(0xFF425C5A);
 const kScaffoldBackgroundColor = Color(0xFF425C5A);
 const kPrimaryColor = Color(0xFFFFCDA3);
-const kExpansionTileDividerColor = Color(0xFF6C8583);

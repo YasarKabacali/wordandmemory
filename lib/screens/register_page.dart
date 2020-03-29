@@ -22,45 +22,50 @@ class _RegisterPageState extends State<RegisterPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Row(
-              children: <Widget>[
-                Expanded(
-                    flex: 1, child: IconTextField(icon: FontAwesomeIcons.user)),
-                Expanded(
-                    flex: 5,
-                    child: CustomTextField(
-                      labelTextField: "FULLNAME",
-                      showText: false,
-                    )),
-              ],
-            ),
-            kSizedBoxFifty,
+                children: <Widget>[
+                  Expanded(
+                      flex: 1,
+                      child: IconTextField(icon: FontAwesomeIcons.user)),
+                  Expanded(
+                      flex: 5,
+                      child: CustomTextField(
+                        labelTextField: "FULLNAME",
+                        closeText: false,
+                      )),
+                ],
+              ),
+              kSizedBoxFifty,
               Row(
-              children: <Widget>[
-                Expanded(
-                    flex: 1, child: IconTextField(icon: FontAwesomeIcons.at)),
-                Expanded(
-                    flex: 5,
-                    child: CustomTextField(
-                      labelTextField: "E-MAIL",
-                      showText: false,
-                    )),
-              ],
-            ),
-             kSizedBoxFifty,
-             Row(
-              children: <Widget>[
-                Expanded(
-                    flex: 1, child: IconTextField(icon: FontAwesomeIcons.lock)),
-                Expanded(
-                    flex: 5,
-                    child: CustomTextField(
-                      labelTextField: "PASSWORD",
-                      showText: true,
-                    )),
-              ],
-            ),
-            kSizedBoxThirty,
-            LrButton(buttonText: "Register",onPress: (){},),
+                children: <Widget>[
+                  Expanded(
+                      flex: 1, child: IconTextField(icon: FontAwesomeIcons.at)),
+                  Expanded(
+                      flex: 5,
+                      child: CustomTextField(
+                        labelTextField: "E-MAIL",
+                        closeText: false,
+                      )),
+                ],
+              ),
+              kSizedBoxFifty,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      flex: 1,
+                      child: IconTextField(icon: FontAwesomeIcons.lock)),
+                  Expanded(
+                      flex: 5,
+                      child: CustomTextField(
+                        labelTextField: "PASSWORD",
+                        closeText: true,
+                      )),
+                ],
+              ),
+              kSizedBoxThirty,
+              LrButton(
+                buttonText: "Register",
+                onPress: () {},
+              ),
             ],
           ),
         ),

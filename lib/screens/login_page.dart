@@ -14,6 +14,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String email;
+  String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,6 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            kSizedBoxFifty,
             Row(
               children: <Widget>[
                 Expanded(
@@ -33,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                     flex: 5,
                     child: CustomTextField(
                       labelTextField: "E-MAIL",
-                      showText: false,
+                      closeText: false,
                     )),
               ],
             ),
@@ -46,13 +47,13 @@ class _LoginPageState extends State<LoginPage> {
                     flex: 5,
                     child: CustomTextField(
                       labelTextField: "PASSWORD",
-                      showText: true,
+                      closeText: true,
                     )),
               ],
             ),
             kSizedBoxTwenty,
             LoginText(
-              loginText: "Forget Passowrd?",
+              loginText: "Forget Password?",
               textStyle: kLoginPageTextStyle,
               onPress: () {},
             ),
