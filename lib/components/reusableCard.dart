@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 const double iconSize = 40.0;
 

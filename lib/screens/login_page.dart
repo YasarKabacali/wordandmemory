@@ -4,7 +4,7 @@ import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
 import 'package:word_and_memory/components/loginText.dart';
-import 'package:word_and_memory/constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/screens/register_page.dart';
 import 'main_page.dart';
 

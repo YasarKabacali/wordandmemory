@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:word_and_memory/constants.dart';
-import 'package:word_and_memory/screens/list_package_page.dart';
+import 'package:word_and_memory/screens/main_navigation_bottom_page.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: kScaffoldBackgroundColor,
       ),
-      home: ListPackagePage(),
+      home: BottomNavigationPage(),
     );
   }
 }

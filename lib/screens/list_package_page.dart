@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:word_and_memory/model/quiz_package.dart';
+import 'package:word_and_memory/models/quiz_package.dart';
+import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/screens/add_quiz_package_page.dart';
 import 'package:word_and_memory/screens/package_detail_page.dart';
-
-import '../constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 List<QuizPackage> quizPackages;
 
@@ -15,7 +15,6 @@ class ListPackagePage extends StatefulWidget {
 class _ListPackagePageState extends State<ListPackagePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     quizPackages = [
       QuizPackage(packageName: "Tourism words", visibility: Privacy.private),
@@ -48,7 +47,10 @@ class _ListPackagePageState extends State<ListPackagePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PackageDetailPage(packageName: quizPackages[index].packageName,)),
+                                builder: (context) => PackageDetailPage(
+                                      packageName:
+                                          quizPackages[index].packageName,
+                                    )),
                           );
                         },
                         child: Column(

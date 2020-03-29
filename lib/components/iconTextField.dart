@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 class IconTextField extends StatelessWidget {
   final IconData icon;

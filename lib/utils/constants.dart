@@ -39,6 +39,8 @@ const kPackagePageRadioTextStyle = TextStyle(
     fontSize: 16.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
 const kPackageListTextStyle = TextStyle(
     fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
+    const kProfileCardTextStyle = TextStyle(
+    fontSize: 18.0,  color: Color(0xFFD3D3D3));
 //BorderSides
 const kCustomTextFieldBorderSide = BorderSide(color: Colors.white);
 const kAlertTextFieldBorderSide = BorderSide(color: kPrimaryColor);
@@ -56,7 +58,7 @@ const kSizedBoxThirty = SizedBox(
 //Transparency percentages
 const kIconColor = Color(0xFFFFCDA3);
 const kButtonColor = Color(0xFFFFCDA3);
-const kMainPageScaffoldColor = Color(0xE6425C5A);
 const kReusableCardColor = Color(0xFF425C5A);
 const kScaffoldBackgroundColor = Color(0xFF425C5A);
 const kPrimaryColor = Color(0xFFFFCDA3);
+const kProfilePageCardColor=Color(0xD9425C5A);

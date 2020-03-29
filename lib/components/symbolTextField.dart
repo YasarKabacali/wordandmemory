@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 class SymbolTextField extends StatelessWidget {
   final String text;

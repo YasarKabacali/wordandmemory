@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/screens/list_package_page.dart';
-import '../constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 enum Privacy { private, public }
 
@@ -14,6 +15,13 @@ class QuizPackagePage extends StatefulWidget {
 class _QuizPackagePageState extends State<QuizPackagePage> {
   Privacy privacy = Privacy.public;
 
+  final myController = TextEditingController();
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  }
+
   String emptyMessage = "";
   //TODO bos mesaj girilmemesi icin kontrol yap kankam
   @override
@@ -22,7 +30,7 @@ class _QuizPackagePageState extends State<QuizPackagePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Creating Package",
+          "Creating Packages",
           style: TextStyle(color: kScaffoldBackgroundColor),
         ),
       ),
@@ -39,6 +47,7 @@ class _QuizPackagePageState extends State<QuizPackagePage> {
                 textAlign: TextAlign.center,
               ),
               CustomTextField(
+                textEditingController: myController,
                 closeText: false,
               ),
               kSizedBoxTwenty,
@@ -94,10 +103,16 @@ class _QuizPackagePageState extends State<QuizPackagePage> {
               LrButton(
                 buttonText: "CREATE",
                 onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ListPackagePage()),
-                  );
+                  Fluttertoast.showToast(
+                      msg: "Your package has been created.",
+                      toastLength: Toast.LENGTH_LONG,
+                      gravity: ToastGravity.BOTTOM,
+                      backgroundColor: Color(0xFF737373),
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                  setState(() {
+                    myController.text="";
+                  });
                 },
               ),
             ],

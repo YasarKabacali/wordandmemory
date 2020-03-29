@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:word_and_memory/constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 class AlertTextField extends StatefulWidget {
   final String title;

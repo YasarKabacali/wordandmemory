@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_and_memory/components/listCard.dart';
-import 'package:word_and_memory/constants.dart';
-import 'package:word_and_memory/model/word.dart';
+import 'package:word_and_memory/utils/constants.dart';
+import 'package:word_and_memory/models/word.dart';
 
 class WordAndSenListPage extends StatefulWidget {
   @override

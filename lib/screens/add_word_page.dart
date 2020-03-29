@@ -4,7 +4,7 @@ import 'package:word_and_memory/components/addWordText.dart';
 import 'package:word_and_memory/components/alertTextField.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/symbolTextField.dart';
-import 'package:word_and_memory/constants.dart';
+import 'package:word_and_memory/utils/constants.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
