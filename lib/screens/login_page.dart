@@ -4,9 +4,9 @@ import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
 import 'package:word_and_memory/components/loginText.dart';
+import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/screens/register_page.dart';
-import 'main_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -14,8 +14,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String email;
-  String password;
+  final TextEditingController email=TextEditingController();
+  final TextEditingController password=TextEditingController();
+  final AuthService auth=AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: CustomTextField(
                       labelTextField: "E-MAIL",
                       closeText: false,
+                      textEditingController: email,
                     )),
               ],
             ),
@@ -48,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: CustomTextField(
                       labelTextField: "PASSWORD",
                       closeText: true,
+                      textEditingController: password,
                     )),
               ],
             ),
@@ -60,11 +63,8 @@ class _LoginPageState extends State<LoginPage> {
             kSizedBoxTwenty,
             LrButton(
               buttonText: "Log in",
-              onPress: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MainPage()),
-                );
+              onPress: () async {
+                dynamic result=await auth.signInWithEmailAndPassword(email.text, password.text);
               },
             ),
             kSizedBoxTwenty,

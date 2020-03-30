@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "491021199171",
+    "firebase_url": "https://wordandmemoryapp.firebaseio.com",
+    "project_id": "wordandmemoryapp",
+    "storage_bucket": "wordandmemoryapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491021199171:android:303931b4051682547871f6",
+        "android_client_info": {
+          "package_name": "com.example.word_and_memory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491021199171-tbd12ebhkh99fmae7vncv5td4j193gvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtrRjcCvK5zBCKO3N1Tg68hyTh1giNSj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491021199171-tbd12ebhkh99fmae7vncv5td4j193gvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
