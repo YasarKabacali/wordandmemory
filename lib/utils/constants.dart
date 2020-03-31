@@ -41,6 +41,10 @@ const kPackageListTextStyle = TextStyle(
     fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
     const kProfileCardTextStyle = TextStyle(
     fontSize: 18.0,  color: Color(0xFFD3D3D3));
+    const kAppBarTextStyle =TextStyle(
+                color: Color(0xFF425C5A),
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold);
 //BorderSides
 const kCustomTextFieldBorderSide = BorderSide(color: Colors.white);
 const kAlertTextFieldBorderSide = BorderSide(color: kPrimaryColor);
@@ -62,3 +66,4 @@ const kReusableCardColor = Color(0xFF425C5A);
 const kScaffoldBackgroundColor = Color(0xFF425C5A);
 const kPrimaryColor = Color(0xFFFFCDA3);
 const kProfilePageCardColor=Color(0xD9425C5A);
+const kPackageListCardColor=Color(0xD9425C5A);

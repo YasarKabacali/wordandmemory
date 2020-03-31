@@ -4,9 +4,9 @@ import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
 import 'package:word_and_memory/components/loginText.dart';
-import 'package:word_and_memory/utils/constants.dart';
+import 'package:word_and_memory/screens/main_navigation_bottom_page.dart';
 import 'package:word_and_memory/screens/register_page.dart';
-import 'main_page.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -63,7 +63,8 @@ class _LoginPageState extends State<LoginPage> {
               onPress: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainPage()),
+                  MaterialPageRoute(
+                      builder: (context) => BottomNavigationPage()),
                 );
               },
             ),

@@ -29,8 +29,10 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: SafeArea(
+              child: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
@@ -38,7 +40,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
         ),
         child: BottomNavigationBar(
           elevation: 8.0,
-          unselectedIconTheme: IconThemeData(color: Colors.grey[400]),
+          unselectedIconTheme: IconThemeData(color: Color(0xFFD3D3D3)),
           selectedIconTheme: IconThemeData(color: kPrimaryColor),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

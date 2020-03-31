@@ -3,6 +3,9 @@ import 'package:word_and_memory/components/listCard.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/models/word.dart';
 
+//TODONavigation bar her sayfada olsun.
+//TODOarama butonu
+//TODOfiltrele butonu navbarın sağına,
 class WordAndSenListPage extends StatefulWidget {
   @override
   _WordAndSenListPageState createState() => _WordAndSenListPageState();
@@ -12,7 +15,6 @@ class _WordAndSenListPageState extends State<WordAndSenListPage> {
   List<Word> words;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     words = [
       Word(
@@ -23,8 +25,7 @@ class _WordAndSenListPageState extends State<WordAndSenListPage> {
       Word("sandalye", "chair", "sandalyede oturuyorum",
           "Im sitting on the chair"),
       Word("gitmek", "go", "okula gideceğim", "Im gonna go to the school."),
-      Word("bilmek", "know", "okula gideceğim",
-          "Im gonna go to the school."),
+      Word("bilmek", "know", "okula gideceğim", "Im gonna go to the school."),
       Word("türkçe", "turkish", "Türkçe benim doğal dilim.",
           "It is my native language."),
       Word("CUSAASF", "AFFDGDXXsdsS", "okula gideceğim",
