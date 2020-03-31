@@ -53,6 +53,13 @@ class _AddWordPageState extends State<AddWordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: kScaffoldBackgroundColor),
+        centerTitle: true,
+        title: Text(
+          "Add Word",
+          style: TextStyle(color: kScaffoldBackgroundColor),
+        ),),
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.0),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/screens/list_package_page.dart';
-import 'package:word_and_memory/screens/test_page.dart';
+import 'package:word_and_memory/screens/quiz_test_page.dart';
 import 'package:word_and_memory/screens/user_profile_page.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
@@ -15,7 +15,7 @@ class BottomNavigationPage extends StatefulWidget {
 class _BottomNavigationPageState extends State<BottomNavigationPage> {
   List<Widget> _widgetOptions = <Widget>[
     QuizPackagePage(),
-    TestPage(),
+    QuizTestPage(),
     ListPackagePage(),
     UserProfilePage(),
   ];
