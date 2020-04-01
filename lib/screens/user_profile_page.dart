@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/customAppBar.dart';
 import 'package:word_and_memory/utils/constants.dart';
+import 'package:word_and_memory/services/auth.dart';
 
 class UserProfilePage extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class UserProfilePage extends StatefulWidget {
 }
 
 class _UserProfilePageState extends State<UserProfilePage> {
+  AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +26,6 @@ class _UserProfilePageState extends State<UserProfilePage> {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Column(
-              
                 children: <Widget>[
                   buildCard("ozan batuhan kurucu", FontAwesomeIcons.user, 50.0),
                   buildCard("ozanbatuhankurucu@gmail.com",
@@ -33,8 +34,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   kSizedBoxFifty,
                   buildProfileCard("Change Password", FontAwesomeIcons.lock,
                       Icons.keyboard_arrow_right, () {}),
-                  buildProfileCard("Sign out", FontAwesomeIcons.signOutAlt,
-                      Icons.keyboard_arrow_right, () {}),
+                  buildProfileCard(
+                    "Sign out",
+                    FontAwesomeIcons.signOutAlt,
+                    Icons.keyboard_arrow_right,
+                    () async {
+                      await _auth.signOut();
+                    },
+                  ),
                 ],
               ),
             )),
