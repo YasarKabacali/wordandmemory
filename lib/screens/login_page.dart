@@ -7,7 +7,7 @@ import 'package:word_and_memory/components/loginText.dart';
 import 'package:word_and_memory/screens/main_navigation_bottom_page.dart';
 import 'package:word_and_memory/screens/register_page.dart';
 import 'package:word_and_memory/utils/constants.dart';
-//dumenden degisiklik
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
