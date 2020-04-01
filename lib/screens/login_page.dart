@@ -65,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
               buttonText: "Log in",
               onPress: () async {
                 dynamic result=await auth.signInWithEmailAndPassword(email.text, password.text);
+
               },
             ),
             kSizedBoxTwenty,

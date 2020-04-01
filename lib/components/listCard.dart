@@ -3,9 +3,7 @@ import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/models/word.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-//navigation bar her sayfada olsun.
-//arama butonu
-//filtrele butonu navbarın sağına,
+
 class ListCard extends StatefulWidget {
   final Word word;
 
