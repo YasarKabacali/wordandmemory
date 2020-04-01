@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
+import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 class RegisterPage extends StatefulWidget {
   @override
@@ -10,6 +11,12 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+
+  final TextEditingController fullname=TextEditingController();
+  final TextEditingController email=TextEditingController();
+  final TextEditingController password=TextEditingController();
+  final AuthService auth=AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: CustomTextField(
                         labelTextField: "FULLNAME",
                         closeText: false,
+                        textEditingController: fullname,
                       )),
                 ],
               ),
@@ -43,6 +51,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: CustomTextField(
                         labelTextField: "E-MAIL",
                         closeText: false,
+                        textEditingController: email,
                       )),
                 ],
               ),
@@ -57,13 +66,16 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: CustomTextField(
                         labelTextField: "PASSWORD",
                         closeText: true,
+                        textEditingController: password,
                       )),
                 ],
               ),
               kSizedBoxThirty,
               LrButton(
                 buttonText: "Register",
-                onPress: () {},
+                onPress: () async {
+                  dynamic result=await auth.registerWithEmailAndPassword(email.text, password.text);
+                },
               ),
             ],
           ),
