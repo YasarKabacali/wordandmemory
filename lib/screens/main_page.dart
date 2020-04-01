@@ -3,15 +3,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/reusableCard.dart';
 import 'package:word_and_memory/screens/add_quiz_package_page.dart';
 import 'package:word_and_memory/screens/list_package_page.dart';
+import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
 class MainPage extends StatelessWidget {
-<<<<<<< HEAD
 
   final AuthService _auth=AuthService();
-=======
-  
->>>>>>> e6752448fdf767841556b6e599d03580f1fe8341
 
   @override
   Widget build(BuildContext context) {
