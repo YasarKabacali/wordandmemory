@@ -8,7 +8,7 @@ import 'package:word_and_memory/utils/constants.dart';
 
 class MainPage extends StatelessWidget {
 
-  AuthService _auth=AuthService();
+  final AuthService _auth=AuthService();
 
   @override
   Widget build(BuildContext context) {
