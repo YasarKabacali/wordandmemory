@@ -27,7 +27,7 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
     Word("bilmek", "know", "okula gideceğim", "Im gonna go to the school.", 55),
     Word("türkçe", "turkish", "Türkçe benim doğal dilim.",
         "It is my native language.", 42),
-    Word("cut", "kesmek", "Bu ekmeği keseceğim.", "I will cut this bread", 32),
+    Word("kesmek", "cut", "Bu ekmeği keseceğim.", "I will cut this bread", 32),
     Word("götos", "asshole", "Sen bir götün tekisin.",
         "You are a fucking asshole.", 31),
   ];
@@ -46,7 +46,7 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
         MaterialPageRoute(builder: (context) => AddWordPage()),
       );
     } //paketi sildiginde yapilacak olan islem
-    else if (choice == "delete") {}
+    else if (choice == "deletepackage") {}
   }
 
   @override
@@ -70,7 +70,7 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                 ),
                 PopupMenuItem<String>(
                   child: Text("Delete package"),
-                  value: "delete",
+                  value: "deletepackage",
                 ),
               ];
             },
@@ -90,27 +90,9 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                 child: Column(
                   children: <Widget>[
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("ozan batuhan kurucu",
+                        Text("Package owner: ozan batuhan kurucu",
                             style: kPackageDetailTextStyle),
-                        Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.thumb_up,
-                              color: Color(0xFF639a67),
-                            ),
-                            SizedBox(width: 5.0),
-                            Text("10", style: kPackageDetailTextStyle),
-                            SizedBox(width: 5.0),
-                            Icon(
-                              Icons.thumb_down,
-                              color: Color(0xFFc02739),
-                            ),
-                            SizedBox(width: 5.0),
-                            Text("32", style: kPackageDetailTextStyle),
-                          ],
-                        ),
                       ],
                     ),
                     SizedBox(
@@ -131,6 +113,24 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                           "Number of words: " + words.length.toString() + "/20",
                           style: kPackageDetailTextStyle,
                         ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Icon(
+                          Icons.thumb_up,
+                          color: Color(0xFF639a67),
+                        ),
+                        SizedBox(width: 5.0),
+                        Text("10", style: kPackageDetailTextStyle),
+                        SizedBox(width: 5.0),
+                        Icon(
+                          Icons.thumb_down,
+                          color: Color(0xFFc02739),
+                        ),
+                        SizedBox(width: 5.0),
+                        Text("32", style: kPackageDetailTextStyle),
                       ],
                     ),
                   ],
