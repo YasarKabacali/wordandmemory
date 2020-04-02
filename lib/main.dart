@@ -3,8 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:word_and_memory/models/user.dart';
 import 'package:word_and_memory/screens/login_page.dart';
 import 'package:word_and_memory/screens/main_navigation_bottom_page.dart';
-import 'package:word_and_memory/screens/package_detail_page.dart';
-import 'package:word_and_memory/screens/register_page.dart';
 import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 

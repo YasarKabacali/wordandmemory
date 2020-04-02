@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:word_and_memory/components/customAppBar.dart';
 import 'package:word_and_memory/models/user.dart';
+import 'package:word_and_memory/screens/package_list_with_detail_page.dart';
+import 'package:word_and_memory/screens/user_edit_profile_page.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/loading.dart';
@@ -18,75 +20,124 @@ class _UserProfilePageState extends State<UserProfilePage> {
   Widget build(BuildContext context) {
     final u = Provider.of<User>(context);
     return StreamBuilder<UserData>(
-      stream: UserRepository(uid:u.uid).userData,
-      builder: (context,snapshot){
-          if(snapshot.hasData){
-            UserData data=snapshot.data;
-            return Column(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: CustomAppBar(
-                    title: "Profile",
+      stream: UserRepository(uid: u.uid).userData,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          UserData data = snapshot.data;
+          return Column(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: CustomAppBar(
+                  title: "Profile",
+                ),
+              ),
+              Expanded(
+                flex: 9,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        buildUserCard(data.name, data.email,
+                            FontAwesomeIcons.user, Icons.email, 30.0, 20.0),
+                        kSizedBoxFifty,
+                        buildProfileCard("Packages", FontAwesomeIcons.box,
+                            Icons.keyboard_arrow_right, () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ListPackageWithDetail()),
+                          );
+                        }, 20.0),
+                        kSizedBoxFifty,
+                        buildProfileCard(
+                            "Change Password",
+                            FontAwesomeIcons.lock,
+                            Icons.keyboard_arrow_right,
+                            () {},
+                            20.0),
+                        buildProfileCard("Logout", FontAwesomeIcons.signOutAlt,
+                            Icons.keyboard_arrow_right, () async {
+                          await _auth.signOut();
+                        }, 20.0),
+                      ],
+                    ),
                   ),
                 ),
-                Expanded(
-                    flex: 9,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Column(
-                        children: <Widget>[
-                          buildCard(data.name, FontAwesomeIcons.user, 50.0),
-                          buildCard(data.email,
-                              FontAwesomeIcons.mailBulk, 30.0),
-                          buildCard("536 561 21 46", FontAwesomeIcons.mobile, 30.0),
-                          kSizedBoxFifty,
-                          buildProfileCard("Change Password", FontAwesomeIcons.lock,
-                              Icons.keyboard_arrow_right, () {}),
-                          buildProfileCard(
-                            "Sign out",
-                            FontAwesomeIcons.signOutAlt,
-                            Icons.keyboard_arrow_right,
-                            () async {
-                              await _auth.signOut();
-                            },
-                          ),
-                        ],
-                      ),
-                    )),
-              ],
-            );
-          }else{
-            return Loading();
-          }
+              ),
+            ],
+          );
+        } else {
+          return Loading();
+        }
       },
     );
-        
   }
 
-  Card buildCard(String text, IconData leadingIcon, double iconSize) {
+  Card buildUserCard(
+      String userName,
+      String userEmail,
+      IconData userNameIcon,
+      IconData userEmailIcon,
+      double userNameIconSize,
+      double userEmailIconSize) {
     return Card(
-      color: kProfilePageCardColor,
-      child: ListTile(
-        leading: Icon(
-          leadingIcon,
-          color: kPrimaryColor,
-          size: iconSize,
-        ),
-        title: Text(
-          text,
-          style: kProfileCardTextStyle,
-        ),
-      ),
-    );
+        color: kProfilePageCardColor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                leading: Icon(
+                  userNameIcon,
+                  color: kPrimaryColor,
+                  size: userNameIconSize,
+                ),
+                title: Text(
+                  userName,
+                  style: kProfileCardTextStyle,
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  userEmailIcon,
+                  color: kPrimaryColor,
+                  size: userEmailIconSize,
+                ),
+                title: Text(userEmail, style: kProfileCardTextStyle),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => EditUserProfile(email: userEmail,userName: userName,)),
+                      );
+                    },
+                    child: Text(
+                      "Edit Profile",
+                      style: TextStyle(
+                          color: Color(0xFFD3D3D3),
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ));
   }
 
-  GestureDetector buildProfileCard(
-    String text,
-    IconData leadingIcon,
-    IconData trailingIcon,
-    Function router,
-  ) {
+  GestureDetector buildProfileCard(String text, IconData leadingIcon,
+      IconData trailingIcon, Function router, double iconSize) {
     return GestureDetector(
       onTap: router,
       child: Card(
@@ -95,10 +146,12 @@ class _UserProfilePageState extends State<UserProfilePage> {
           leading: Icon(
             leadingIcon,
             color: kPrimaryColor,
+            size: iconSize,
           ),
           trailing: Icon(
             trailingIcon,
             color: kPrimaryColor,
+            size: iconSize,
           ),
           title: Text(
             text,

@@ -40,7 +40,7 @@ const kPackagePageRadioTextStyle = TextStyle(
 const kPackageListTextStyle = TextStyle(
     fontSize: 18.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
 const kProfileCardTextStyle =
-    TextStyle(fontSize: 18.0, color: Color(0xFFD3D3D3));
+    TextStyle(fontSize: 16.0, color: Color(0xFFD3D3D3));
 const kAppBarTextStyle = TextStyle(
     color: Color(0xFF425C5A), fontSize: 20.0, fontWeight: FontWeight.bold);
 const kPackageDetailTextStyle =

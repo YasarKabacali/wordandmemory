@@ -141,6 +141,7 @@ class _AddWordPageState extends State<AddWordPage> {
                         fontSize: 16.0);
                   }
                 },
+                color: kPrimaryColor,
               ),
             ],
           ),

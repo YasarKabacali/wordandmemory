@@ -7,9 +7,8 @@ class SwipperFlipCard extends StatelessWidget {
   final String word;
   final String sentence;
   final double successRate;
-  final Function deleteCard;
-  SwipperFlipCard(
-      {this.word, this.sentence, this.successRate, this.deleteCard});
+
+  SwipperFlipCard({this.word, this.sentence, this.successRate});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -41,15 +40,7 @@ class SwipperFlipCard extends StatelessWidget {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: deleteCard,
-                        child: Icon(
-                          FontAwesomeIcons.trashAlt,
-                          color: kPrimaryColor,
-                        ),
-                      ),
-                    ],
+                    children: <Widget>[],
                   ),
                   LinearPercentIndicator(
                     trailing: Text("%" + successRate.toString(),

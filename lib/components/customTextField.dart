@@ -6,13 +6,14 @@ class CustomTextField extends StatelessWidget {
   final bool closeText;
   final TextEditingController textEditingController;
 
-  CustomTextField({this.labelTextField, this.closeText,this.textEditingController});
+  CustomTextField(
+      {this.labelTextField, this.closeText, this.textEditingController});
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 40.0,
-      child: TextFormField(
-       controller: textEditingController,
+      child: TextField(
+        controller: textEditingController,
         textAlign: TextAlign.left,
         obscureText: closeText,
         style: TextStyle(color: Colors.white, decoration: TextDecoration.none),

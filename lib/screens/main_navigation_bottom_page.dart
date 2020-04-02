@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:word_and_memory/screens/list_package_page.dart';
-import 'package:word_and_memory/screens/quiz_test_page.dart';
+import 'package:word_and_memory/screens/package_create_page.dart';
+import 'package:word_and_memory/screens/package_list_page.dart';
 import 'package:word_and_memory/screens/user_profile_page.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
-import 'add_quiz_package_page.dart';
+import 'global_page.dart';
+import 'movements_page.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   @override
@@ -14,9 +15,10 @@ class BottomNavigationPage extends StatefulWidget {
 
 class _BottomNavigationPageState extends State<BottomNavigationPage> {
   List<Widget> _widgetOptions = <Widget>[
-    QuizPackagePage(),
-    QuizTestPage(),
+    GlobalPage(),
     ListPackagePage(),
+    CreatePackagePage(),
+    MovementsPage(),
     UserProfilePage(),
   ];
   int _selectedIndex = 0;
@@ -30,7 +32,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-              child: Center(
+        child: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
       ),
@@ -51,13 +53,20 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FontAwesomeIcons.redo,
+                FontAwesomeIcons.list,
               ),
               title: Text(""),
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FontAwesomeIcons.list,
+                Icons.add_box,
+                size: 32.0,
+              ),
+              title: Text(""),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                FontAwesomeIcons.heart,
               ),
               title: Text(""),
             ),

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/reusableCard.dart';
-import 'package:word_and_memory/screens/add_quiz_package_page.dart';
-import 'package:word_and_memory/screens/list_package_page.dart';
+import 'package:word_and_memory/screens/package_list_page.dart';
+import 'package:word_and_memory/screens/package_create_page.dart';
 import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
 class MainPage extends StatelessWidget {
-
-  final AuthService _auth=AuthService();
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,8 @@ class MainPage extends StatelessWidget {
                 onPress: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => QuizPackagePage()),
+                    MaterialPageRoute(
+                        builder: (context) => CreatePackagePage()),
                   );
                 },
               ),

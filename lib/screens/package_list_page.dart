@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:word_and_memory/components/customAppBar.dart';
 import 'package:word_and_memory/models/quiz_package.dart';
+import 'package:word_and_memory/screens/quiz_test_page.dart';
 import 'package:word_and_memory/utils/constants.dart';
-import 'package:word_and_memory/screens/add_quiz_package_page.dart';
-import 'package:word_and_memory/screens/package_detail_page.dart';
+import 'package:word_and_memory/screens/package_create_page.dart';
 
 List<QuizPackage> quizPackages;
 
@@ -16,6 +17,7 @@ class _ListPackagePageState extends State<ListPackagePage> {
   @override
   void initState() {
     super.initState();
+
     quizPackages = [
       QuizPackage(packageName: "word and memory", visibility: Privacy.private),
       QuizPackage(packageName: "Fruits", visibility: Privacy.public),
@@ -55,46 +57,35 @@ class _ListPackagePageState extends State<ListPackagePage> {
         Expanded(
             flex: 1,
             child: CustomAppBar(
-              title: "Package List",
+              title: "Quick Quiz",
             )),
         Expanded(
           flex: 9,
           child: ListView.builder(
               itemCount: quizPackages.length,
               itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PackageDetailPage(
-                                packageName: quizPackages[index].packageName,
-                              )),
-                    );
-                  },
-                  child: Column(
-                    children: <Widget>[
-                      Card(
-                        color: kPackageListCardColor,
-                        child: ListTile(
-                          title: Text(
-                            quizPackages[index].packageName,
-                            style: kPackageListTextStyle,
-                          ),
-                          trailing:
-                              quizPackages[index].visibility == Privacy.private
-                                  ? Icon(
-                                      Icons.lock,
-                                      color: kPrimaryColor,
-                                    )
-                                  : Icon(
-                                      Icons.lock_open,
-                                      color: kPrimaryColor,
-                                    ),
+                return Column(
+                  children: <Widget>[
+                    Card(
+                      color: kPackageListCardColor,
+                      child: ListTile(
+                        title: Text(
+                          quizPackages[index].packageName,
+                          style: kPackageListTextStyle,
+                        ),
+                        trailing: GestureDetector(
+                          child: Icon(FontAwesomeIcons.play,color: Color(0xFF639a67),size: 14,),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => QuizTestPage()),
+                            );
+                          },
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 );
               }),
         ),
