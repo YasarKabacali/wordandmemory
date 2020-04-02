@@ -7,6 +7,7 @@ import 'package:word_and_memory/components/loginText.dart';
 import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/screens/register_page.dart';
+import 'package:word_and_memory/utils/loading.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -52,9 +53,14 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+
+
+  bool loading=false;
+  String error="";
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading? Loading() : Scaffold(
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.0),

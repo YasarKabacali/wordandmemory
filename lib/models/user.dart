@@ -6,20 +6,20 @@ class User{
 }
 
 class UserData{
-  String uid;
-  String fname;
-  String lname;
+  final String uid;
+  final String name;
+  final String email;
 
-  UserData({this.uid,this.fname,this.lname});
+  UserData({this.uid,this.name,this.email});
 
   Map<String,dynamic> toJson()=>{
-    'fname':fname,
-    'lname':lname,
+    'name':name,
+    'email':email
   };
 
-  UserData.fromSnapshot(DocumentSnapshot snapshot):
-    fname=snapshot['fname'],
-    lname=snapshot['lname'];
+  //UserData.fromSnapshot(DocumentSnapshot snapshot):
+  //  fname=snapshot['fname'],
+  // lname=snapshot['lname'];
 }
 
 class UserRepository{
@@ -31,6 +31,19 @@ class UserRepository{
 
   Future<void> updateUser(UserData data) async {
     return await userCollection.document(uid).setData(data.toJson());
+  }
+
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+      uid: uid,
+      name: snapshot.data['name'],
+      email: snapshot.data['email']
+    );
+  }
+
+  Stream<UserData> get userData {
+    return userCollection.document(uid).snapshots()
+      .map(_userDataFromSnapshot);
   }
 
 }
