@@ -28,7 +28,7 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
     Word("türkçe", "turkish", "Türkçe benim doğal dilim.",
         "It is my native language.", 42),
     Word("cut", "kesmek", "Bu ekmeği keseceğim.", "I will cut this bread", 32),
-    Word("göt", "asshole", "Sen bir götün tekisin.",
+    Word("götos", "asshole", "Sen bir götün tekisin.",
         "You are a fucking asshole.", 31),
   ];
 
