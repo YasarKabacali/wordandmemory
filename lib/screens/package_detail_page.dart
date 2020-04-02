@@ -5,7 +5,7 @@ import 'package:word_and_memory/screens/add_word_page.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flip_card/flip_card.dart';
-//TODOust tarafin tasariminda degisiklik yap.
+
 class PackageDetailPage extends StatefulWidget {
   final String packageName;
   PackageDetailPage({this.packageName});
@@ -45,7 +45,7 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
         context,
         MaterialPageRoute(builder: (context) => AddWordPage()),
       );
-    }//paketi sildiginde yapilacak olan islem  
+    } //paketi sildiginde yapilacak olan islem
     else if (choice == "delete") {}
   }
 
@@ -88,7 +88,7 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                 padding: const EdgeInsets.symmetric(
                     vertical: 16.0, horizontal: 16.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,11 +114,8 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 16.0,
-                    ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Text("Package Success Rate: %90",
                             style: kPackageDetailTextStyle),

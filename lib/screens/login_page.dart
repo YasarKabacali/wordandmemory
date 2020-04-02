@@ -4,7 +4,6 @@ import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
 import 'package:word_and_memory/components/loginText.dart';
-import 'package:word_and_memory/models/user.dart';
 import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/screens/register_page.dart';
@@ -15,9 +14,44 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController email=TextEditingController();
-  final TextEditingController password=TextEditingController();
-  final AuthService auth=AuthService();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final AuthService auth = AuthService();
+  Widget button = LrButton(
+    color: Color(0xFF6C8583),
+    buttonText: "Log in",
+    onPress: () {},
+  );
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    email.addListener(listener);
+    password.addListener(listener);
+  }
+
+  void listener() {
+    setState(() {
+      if (email.text != "" && password.text!="") {
+        button = LrButton(
+          color: kButtonColor,
+          buttonText: "Log in",
+          onPress: () async {
+            dynamic result = await auth.signInWithEmailAndPassword(
+                email.text, password.text);
+          },
+        );
+      } else {
+        button = LrButton(
+          color: Color(0xFF6C8583),
+          buttonText: "Log in",
+          onPress: () {},
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                 Expanded(
                     flex: 5,
                     child: CustomTextField(
-                      labelTextField: "E-MAIL",
+                      labelTextField: "E-mail",
                       closeText: false,
                       textEditingController: email,
                     )),
@@ -49,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                 Expanded(
                     flex: 5,
                     child: CustomTextField(
-                      labelTextField: "PASSWORD",
+                      labelTextField: "Password",
                       closeText: true,
                       textEditingController: password,
                     )),
@@ -62,13 +96,7 @@ class _LoginPageState extends State<LoginPage> {
               onPress: () {},
             ),
             kSizedBoxTwenty,
-            LrButton(
-              buttonText: "Log in",
-              onPress: () async {
-                dynamic result=await auth.signInWithEmailAndPassword(email.text, password.text);
-
-              },
-            ),
+            button,
             kSizedBoxTwenty,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

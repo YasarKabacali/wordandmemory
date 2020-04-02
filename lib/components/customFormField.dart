@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomFormField extends StatelessWidget {
   final String labelTextField;
   final bool closeText;
-  final TextEditingController textEditingController;
+  final Function function;
 
-  CustomTextField({this.labelTextField, this.closeText,this.textEditingController});
+  CustomFormField({this.labelTextField, this.closeText,this.function});
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 40.0,
       child: TextFormField(
-       controller: textEditingController,
+       validator: function,
         textAlign: TextAlign.left,
         obscureText: closeText,
         style: TextStyle(color: Colors.white, decoration: TextDecoration.none),
