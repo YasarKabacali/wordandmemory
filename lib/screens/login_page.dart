@@ -4,6 +4,7 @@ import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/iconTextField.dart';
 import 'package:word_and_memory/components/loginText.dart';
+import 'package:word_and_memory/main.dart';
 import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/screens/register_page.dart';
@@ -26,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     email.addListener(listener);
     password.addListener(listener);
@@ -39,8 +39,17 @@ class _LoginPageState extends State<LoginPage> {
           color: kButtonColor,
           buttonText: "Log in",
           onPress: () async {
+            setState(() {
+              loading=true;
+            });
             dynamic result = await auth.signInWithEmailAndPassword(
                 email.text, password.text);
+            if(result!=null){
+              setState(() {
+                loading=false;
+
+              });
+            }
           },
         );
       } else {

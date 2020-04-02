@@ -86,8 +86,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       loading=false;
                       error="Kayıt başarısız";
                     });
-                  }else{
-                    return PageRouter();
                   }
                   
                 },
