@@ -88,7 +88,6 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                 padding: const EdgeInsets.symmetric(
                     vertical: 16.0, horizontal: 16.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,14 +98,14 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                           children: <Widget>[
                             Icon(
                               Icons.thumb_up,
-                              color: kPrimaryColor,
+                              color: Color(0xFF639a67),
                             ),
                             SizedBox(width: 5.0),
                             Text("10", style: kPackageDetailTextStyle),
                             SizedBox(width: 5.0),
                             Icon(
                               Icons.thumb_down,
-                              color: kPrimaryColor,
+                              color: Color(0xFFc02739),
                             ),
                             SizedBox(width: 5.0),
                             Text("32", style: kPackageDetailTextStyle),
@@ -114,11 +113,24 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 15.0,
+                    ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Text("Package Success Rate: %90",
                             style: kPackageDetailTextStyle),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 7.0,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          "Number of words: " + words.length.toString() + "/20",
+                          style: kPackageDetailTextStyle,
+                        ),
                       ],
                     ),
                   ],
@@ -139,17 +151,11 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                             word: words[index].en,
                             sentence: words[index].enSentence,
                             successRate: words[index].successRate,
-                            deleteCard: () {
-                              setState(() {});
-                            },
                           ),
                           back: SwipperFlipCard(
                             word: words[index].tr,
                             sentence: words[index].trSentence,
                             successRate: words[index].successRate,
-                            deleteCard: () {
-                              setState(() {});
-                            },
                           ),
                         );
                       },

@@ -7,12 +7,12 @@ import 'package:word_and_memory/utils/constants.dart';
 
 enum Privacy { private, public }
 
-class QuizPackagePage extends StatefulWidget {
+class CreatePackagePage extends StatefulWidget {
   @override
-  _QuizPackagePageState createState() => _QuizPackagePageState();
+  _CreatePackagePageState createState() => _CreatePackagePageState();
 }
 
-class _QuizPackagePageState extends State<QuizPackagePage> {
+class _CreatePackagePageState extends State<CreatePackagePage> {
   Privacy privacy = Privacy.public;
   String emptyMessage = "";
   final myController = TextEditingController();
@@ -118,6 +118,7 @@ class _QuizPackagePageState extends State<QuizPackagePage> {
                           fontSize: 16.0);
                     }
                   },
+                  color: kPrimaryColor,
                 ),
               ],
             ),
