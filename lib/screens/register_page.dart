@@ -11,7 +11,7 @@ class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
-
+//TODOForm field ekle
 class _RegisterPageState extends State<RegisterPage> {
 
   final TextEditingController fullname=TextEditingController();

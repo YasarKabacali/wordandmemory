@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:word_and_memory/components/LrButton.dart';
 import 'package:word_and_memory/components/addWordText.dart';
 import 'package:word_and_memory/components/alertTextField.dart';
+import 'package:word_and_memory/components/customFormField.dart';
 import 'package:word_and_memory/components/customTextField.dart';
 import 'package:word_and_memory/components/symbolTextField.dart';
 import 'package:word_and_memory/utils/constants.dart';
@@ -14,6 +15,8 @@ class AddWordPage extends StatefulWidget {
 }
 
 class _AddWordPageState extends State<AddWordPage> {
+  final _formKey = GlobalKey<FormState>();
+
   _onAlertWithCustomContentPressed(context) {
     Alert(
         context: context,
@@ -59,70 +62,88 @@ class _AddWordPageState extends State<AddWordPage> {
         title: Text(
           "Add Word",
           style: TextStyle(color: kScaffoldBackgroundColor),
-        ),),
+        ),
+      ),
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                //Text alanında harf sayisinda kisitlamasi olacak mi
-                Expanded(
-                  flex: 1,
-                  child: SymbolTextField(
-                    text: "TR",
-                    textStyle: kSymbolTextStyle,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  //Text alanında harf sayisinda kisitlamasi olacak mi
+                  Expanded(
+                    flex: 1,
+                    child: SymbolTextField(
+                      text: "TR",
+                      textStyle: kSymbolTextStyle,
+                    ),
                   ),
-                ),
-                Expanded(
-                  flex: 5,
-                  child: CustomTextField(
-                    closeText: false,
+                  Expanded(
+                    flex: 5,
+                    child: CustomFormField(
+                      closeText: false,
+                      function: (value) {
+                        if (value.isEmpty) {
+                          return 'Please enter tr word ';
+                        }
+                        return null;
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-            kSizedBoxFifty,
-            Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: SymbolTextField(
-                    text: "EN",
-                    textStyle: kSymbolTextStyle,
+                ],
+              ),
+              kSizedBoxFifty,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: SymbolTextField(
+                      text: "EN",
+                      textStyle: kSymbolTextStyle,
+                    ),
                   ),
-                ),
-                Expanded(
-                  flex: 5,
-                  child: CustomTextField(
-                    closeText: false,
+                  Expanded(
+                    flex: 5,
+                    child: CustomFormField(
+                      closeText: false,
+                      function: (value) {
+                        if (value.isEmpty) {
+                          return 'Please enter en word';
+                        }
+                        return null;
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-            kSizedBoxFifty,
-            AddWordText(
-              addWordText: "Make your own sentence with the word",
-              textStyle: kAddWordPageTextStyle,
-              onPress: () => _onAlertWithCustomContentPressed(context),
-            ),
-            kSizedBoxTwenty,
-            LrButton(
-              buttonText: "SAVE",
-              onPress: () {
-                Fluttertoast.showToast(
-                    msg: "Your word has been saved.",
-                    toastLength: Toast.LENGTH_LONG,
-                    gravity: ToastGravity.BOTTOM,
-                    backgroundColor: Color(0xFF737373),
-                    textColor: Colors.white,
-                    fontSize: 16.0);
-              },
-            ),
-          ],
+                ],
+              ),
+              kSizedBoxFifty,
+              AddWordText(
+                addWordText: "Make your own sentence with the word",
+                textStyle: kAddWordPageTextStyle,
+                onPress: () => _onAlertWithCustomContentPressed(context),
+              ),
+              kSizedBoxTwenty,
+              LrButton(
+                buttonText: "SAVE",
+                onPress: () {
+                  if (_formKey.currentState.validate()) {
+                    Fluttertoast.showToast(
+                        msg: "Your word has been saved.",
+                        toastLength: Toast.LENGTH_LONG,
+                        gravity: ToastGravity.BOTTOM,
+                        backgroundColor: Color(0xFF737373),
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       )),
     );
