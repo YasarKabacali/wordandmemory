@@ -89,6 +89,25 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                     vertical: 16.0, horizontal: 16.0),
                 child: Column(
                   children: <Widget>[
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Icon(
+                          Icons.thumb_up,
+                          color: Color(0xFF639a67),
+                        ),
+                        SizedBox(width: 5.0),
+                        Text("10", style: kPackageDetailTextStyle),
+                        SizedBox(width: 5.0),
+                        Icon(
+                          Icons.thumb_down,
+                          color: Color(0xFFc02739),
+                        ),
+                        SizedBox(width: 5.0),
+                        Text("32", style: kPackageDetailTextStyle),
+                      ],
+                    ),
+                    kSizedBoxThirty,
                     Row(
                       children: <Widget>[
                         Text("Package owner: ozan batuhan kurucu",
@@ -115,24 +134,7 @@ class _PackageDetailPageState extends State<PackageDetailPage> {
                         ),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Icon(
-                          Icons.thumb_up,
-                          color: Color(0xFF639a67),
-                        ),
-                        SizedBox(width: 5.0),
-                        Text("10", style: kPackageDetailTextStyle),
-                        SizedBox(width: 5.0),
-                        Icon(
-                          Icons.thumb_down,
-                          color: Color(0xFFc02739),
-                        ),
-                        SizedBox(width: 5.0),
-                        Text("32", style: kPackageDetailTextStyle),
-                      ],
-                    ),
+                   
                   ],
                 ),
               ),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:word_and_memory/components/customAppBar.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
 class GlobalPage extends StatefulWidget {
@@ -11,20 +9,22 @@ class GlobalPage extends StatefulWidget {
 class _GlobalPageState extends State<GlobalPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-            flex: 1,
-            child: CustomAppBar(
-              title: "Word and Memory",
-            )),
-        Expanded(
-          flex: 9,
-          child: Center(
+    return Scaffold(
+      appBar: AppBar(
+         automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(
+          "Global Page",
+          style: TextStyle(color: kScaffoldBackgroundColor),
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          Center(
             child: Container(),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

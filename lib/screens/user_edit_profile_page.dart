@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:word_and_memory/components/customTextField.dart';
+import 'package:word_and_memory/components/generalFormField.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
 class EditUserProfile extends StatefulWidget {
@@ -12,18 +13,20 @@ class EditUserProfile extends StatefulWidget {
 }
 
 class _EditUserProfileState extends State<EditUserProfile> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController userNameController;
+  TextEditingController emailController;
+
   String email;
   String userName;
-  TextEditingController emailController;
-  TextEditingController userNameController;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     email = widget.email;
     userName = widget.userName;
-    emailController = TextEditingController();
     userNameController = TextEditingController();
+    emailController = TextEditingController();
     setState(() {
       userNameController.text = userName;
       emailController.text = email;
@@ -50,7 +53,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
         actions: <Widget>[
           IconButton(
             //Kullanıcı alanları degistirdiginde kaydet e basınca tetiklenecek alan
-            onPressed: () {},
+            //Profile sayfasına yönlendirebilir kaydettikten sonra.
+            onPressed: () {
+              if (_formKey.currentState.validate()) {
+             
+              }
+            },
             icon: Icon(
               Icons.check,
               color: Color(0xFF639a67),
@@ -60,20 +68,36 @@ class _EditUserProfileState extends State<EditUserProfile> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Column(
-            children: <Widget>[
-              CustomTextField(
-                labelTextField: "Name & Surname",
-                closeText: false,
-                textEditingController: userNameController,
-              ),
-              CustomTextField(
-                labelTextField: "E-mail",
-                closeText: false,
-                textEditingController: emailController,
-              ),
-            ],
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+                GeneralFormField(
+                  text: "Name & Surname",
+                  validatorFunction: (value) {
+                    if (value.isEmpty) {
+                      return "Please don't leave this field empty.";
+                    } else {
+                      return null;
+                    }
+                  },
+                  textEditingController: userNameController,
+                ),
+                kSizedBoxTwenty,
+                GeneralFormField(
+                  text: "E-mail",
+                  validatorFunction: (value) {
+                    if (value.isEmpty) {
+                      return "Please don't leave this field empty.";
+                    } else {
+                      return null;
+                    }
+                  },
+                  textEditingController: emailController,
+                ),
+              ],
+            ),
           ),
         ),
       ),

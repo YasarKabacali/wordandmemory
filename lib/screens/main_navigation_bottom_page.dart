@@ -38,11 +38,11 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Color(0x80425C5A),
+          canvasColor: Colors.white,
         ),
         child: BottomNavigationBar(
           elevation: 8.0,
-          unselectedIconTheme: IconThemeData(color: Color(0xFFD3D3D3)),
+          unselectedIconTheme: IconThemeData(color: Color(0xFF949494)),
           selectedIconTheme: IconThemeData(color: kPrimaryColor),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

@@ -16,13 +16,13 @@ class CustomTextField extends StatelessWidget {
         controller: textEditingController,
         textAlign: TextAlign.left,
         obscureText: closeText,
-        style: TextStyle(color: Colors.white, decoration: TextDecoration.none),
-        cursorColor: Colors.white,
+        style: TextStyle(color: Colors.black),
+        cursorColor: Colors.black,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(left: 10.0, bottom: 15.0),
           hintText: labelTextField,
           hintStyle: TextStyle(
-            color: Color(0xFF94AEAC),
+            color: Color(0xFF6C6C6C),
           ),
           border: InputBorder.none,
         ),

@@ -52,16 +52,18 @@ class _ListPackagePageState extends State<ListPackagePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-            flex: 1,
-            child: CustomAppBar(
-              title: "Quick Quiz",
-            )),
-        Expanded(
-          flex: 9,
-          child: ListView.builder(
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(
+          "Quick Quiz",
+          style: TextStyle(color: kScaffoldBackgroundColor),
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          ListView.builder(
               itemCount: quizPackages.length,
               itemBuilder: (context, index) {
                 return Column(
@@ -74,7 +76,11 @@ class _ListPackagePageState extends State<ListPackagePage> {
                           style: kPackageListTextStyle,
                         ),
                         trailing: GestureDetector(
-                          child: Icon(FontAwesomeIcons.play,color: Color(0xFF639a67),size: 14,),
+                          child: Icon(
+                            FontAwesomeIcons.play,
+                            color: Color(0xFF639a67),
+                            size: 14,
+                          ),
                           onTap: () {
                             Navigator.push(
                               context,
@@ -88,8 +94,8 @@ class _ListPackagePageState extends State<ListPackagePage> {
                   ],
                 );
               }),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

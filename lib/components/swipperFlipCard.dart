@@ -26,7 +26,7 @@ class _SwipperFlipCardState extends State<SwipperFlipCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0x59425C5A),
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -42,7 +42,7 @@ class _SwipperFlipCardState extends State<SwipperFlipCard> {
                         onSelected: choiceAction,
                         icon: Icon(
                           FontAwesomeIcons.ellipsisH,
-                          color: Colors.grey[600],
+                          color: Color(0xFF6C6C6C),
                         ),
                         itemBuilder: (BuildContext context) {
                           return [
@@ -61,11 +61,11 @@ class _SwipperFlipCardState extends State<SwipperFlipCard> {
                   ),
                   Text(
                     widget.word.toUpperCase(),
-                    style: TextStyle(fontSize: 20.0, color: kPrimaryColor),
+                    style: kPackageDetailCardTitleTextStyle,
                   ),
                   Text(
                     widget.sentence,
-                    style: kMainPageTextStyle,
+                    style: kPackageDetailCardContentTextStyle,
                   ),
                 ],
               ),
@@ -77,7 +77,7 @@ class _SwipperFlipCardState extends State<SwipperFlipCard> {
                 children: <Widget>[
                   LinearPercentIndicator(
                     trailing: Text("%" + widget.successRate.toString(),
-                        style: TextStyle(fontSize: 16.0, color: kPrimaryColor)),
+                        style: TextStyle(fontSize: 14.0, color: Color(0xFF6C6C6C))),
                     lineHeight: 14.0,
                     percent: widget.successRate / 100,
                     backgroundColor: kScaffoldBackgroundColor,

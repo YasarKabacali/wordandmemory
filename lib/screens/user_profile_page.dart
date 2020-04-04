@@ -24,49 +24,56 @@ class _UserProfilePageState extends State<UserProfilePage> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           UserData data = snapshot.data;
-          return Column(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: CustomAppBar(
-                  title: "Profile",
+          return Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              centerTitle: true,
+              title: Text(
+                "Profile",
+                style: TextStyle(color: kScaffoldBackgroundColor),
+              ),
+            ),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    buildUserCard(data.name, data.email,
+                        FontAwesomeIcons.user, Icons.email, 30.0, 20.0),
+                    kSizedBoxFifty,
+                    buildProfileCard("Packages", FontAwesomeIcons.box,
+                        Icons.keyboard_arrow_right, () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListPackageWithDetail()),
+                      );
+                    }, 20.0),
+                    buildProfileCard("Edit Profile", Icons.edit,
+                        Icons.keyboard_arrow_right, () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditUserProfile(
+                                  email: data.email,
+                                  userName: data.name,
+                                )),
+                      );
+                    }, 20.0),
+                    buildProfileCard(
+                        "Change Password",
+                        FontAwesomeIcons.lock,
+                        Icons.keyboard_arrow_right,
+                        () {},
+                        20.0),
+                    buildProfileCard("Logout", FontAwesomeIcons.signOutAlt,
+                        Icons.keyboard_arrow_right, () async {
+                      await _auth.signOut();
+                    }, 20.0),
+                  ],
                 ),
               ),
-              Expanded(
-                flex: 9,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: <Widget>[
-                        buildUserCard(data.name, data.email,
-                            FontAwesomeIcons.user, Icons.email, 30.0, 20.0),
-                        kSizedBoxFifty,
-                        buildProfileCard("Packages", FontAwesomeIcons.box,
-                            Icons.keyboard_arrow_right, () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ListPackageWithDetail()),
-                          );
-                        }, 20.0),
-                        kSizedBoxFifty,
-                        buildProfileCard(
-                            "Change Password",
-                            FontAwesomeIcons.lock,
-                            Icons.keyboard_arrow_right,
-                            () {},
-                            20.0),
-                        buildProfileCard("Logout", FontAwesomeIcons.signOutAlt,
-                            Icons.keyboard_arrow_right, () async {
-                          await _auth.signOut();
-                        }, 20.0),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           );
         } else {
           return Loading();
@@ -106,30 +113,6 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   size: userEmailIconSize,
                 ),
                 title: Text(userEmail, style: kProfileCardTextStyle),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => EditUserProfile(email: userEmail,userName: userName,)),
-                      );
-                    },
-                    child: Text(
-                      "Edit Profile",
-                      style: TextStyle(
-                          color: Color(0xFFD3D3D3),
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                ],
               ),
             ],
           ),

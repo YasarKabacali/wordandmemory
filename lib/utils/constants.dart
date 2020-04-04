@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 //TextStyles
 const kLoginPageTextStyle = TextStyle(
-    color: Color(0xFF6C8583), fontSize: 16.0, fontWeight: FontWeight.bold);
+    color: Color(0xFF6C6C6C), fontSize: 16.0, fontWeight: FontWeight.bold);
 const kAddWordPageTextStyle = TextStyle(
     color: Color(0xFF6C8583),
     fontSize: 16.0,
     fontWeight: FontWeight.bold,
     decoration: TextDecoration.underline);
 const kJoinNowTextStyle = TextStyle(
-    color: Color(0xFFFFCDA3), fontSize: 16.0, fontWeight: FontWeight.bold);
+    color: Colors.orange, fontSize: 16.0, fontWeight: FontWeight.bold);
 const kAlertTitleTextStyle = TextStyle(
     color: Color(0xFFFFCDA3), fontSize: 16.0, fontWeight: FontWeight.bold);
-const kMainPageTextStyle =
-    TextStyle(color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.bold);
+const kPackageDetailCardContentTextStyle = TextStyle(
+    color: Color(0xFF191919), fontSize: 16.0, fontWeight: FontWeight.bold);
 const kSymbolTextStyle = TextStyle(
   color: Colors.white,
   fontSize: 16.0,
@@ -32,21 +32,27 @@ const kListElementDetailCardTextStyle = TextStyle(
 const kAddWordAlertTextStyle = TextStyle(
     color: Color(0xFFFFCDA3), fontSize: 14.0, fontWeight: FontWeight.bold);
 const kPackagePageTextStyle = TextStyle(
-    color: Color(0xFFFFCDA3), fontSize: 16.0, fontWeight: FontWeight.bold);
-const kPackagePageVisibilityTextStyle =
-    TextStyle(fontSize: 16.0, color: kPrimaryColor);
+    color: Color(0xFF6C6C6C), fontSize: 16.0, fontWeight: FontWeight.bold);
+const kPackagePageVisibilityTextStyle = TextStyle(
+  fontSize: 16.0,
+  color: Color(0xFF6C6C6C),
+  fontWeight: FontWeight.bold,
+);
 const kPackagePageRadioTextStyle = TextStyle(
-    fontSize: 16.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
+    fontSize: 16.0, fontWeight: FontWeight.bold, color: Color(0xFF6C6C6C));
 const kPackageListTextStyle = TextStyle(
-    fontSize: 16.0, fontWeight: FontWeight.bold, color: Color(0xFFFFCDA3));
-const kProfileCardTextStyle =
-    TextStyle(fontSize: 16.0, color: Color(0xFFD3D3D3));
-const kAppBarTextStyle = TextStyle(
-    color: Color(0xFF425C5A), fontSize: 20.0, fontWeight: FontWeight.bold);
+    fontSize: 16.0, fontWeight: FontWeight.bold, color: Color(0xFF6C6C6C));
+const kProfileCardTextStyle = TextStyle(fontSize: 16.0, color: Colors.black);
+const kAppBarTextStyle =
+    TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold);
+const kRegisterErrorTextStyle =
+    TextStyle(color: Colors.red, fontSize: 14.0, fontWeight: FontWeight.bold);
 const kPackageDetailTextStyle =
-    TextStyle(color: Color(0xFFFFCDA3), fontSize: 16.0);
+    TextStyle(color: Color(0xFF6C6C6C), fontSize: 16.0);
+const kPackageDetailCardTitleTextStyle = TextStyle(
+    fontSize: 20.0, color: Color(0xFF191919), fontWeight: FontWeight.bold);
 //BorderSides
-const kCustomTextFieldBorderSide = BorderSide(color: Colors.white);
+const kCustomTextFieldBorderSide = BorderSide(color: Colors.black);
 const kAlertTextFieldBorderSide = BorderSide(color: kPrimaryColor);
 //SizedBoxes
 const kSizedBoxTwenty = SizedBox(
@@ -58,12 +64,15 @@ const kSizedBoxFifty = SizedBox(
 const kSizedBoxThirty = SizedBox(
   height: 40.0,
 );
+const kSizedBoxTen = SizedBox(
+  height: 10.0,
+);
 //Colors
 //Transparency percentages
-const kIconColor = Color(0xFFFFCDA3);
+const kIconColor = Colors.orange;
 const kButtonColor = Color(0xFFFFCDA3);
 const kReusableCardColor = Color(0xFF425C5A);
-const kScaffoldBackgroundColor = Color(0xFF425C5A);
-const kPrimaryColor = Color(0xFFFFCDA3);
-const kProfilePageCardColor = Color(0xD9425C5A);
-const kPackageListCardColor = Color(0xD9425C5A);
+const kScaffoldBackgroundColor = Color(0xFFF5F5F5);
+const kPrimaryColor = Colors.orange;
+const kProfilePageCardColor = Colors.white;
+const kPackageListCardColor = Colors.white;
