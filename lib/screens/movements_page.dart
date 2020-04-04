@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:word_and_memory/components/customAppBar.dart';
+import 'package:word_and_memory/utils/constants.dart';
 
 class MovementsPage extends StatefulWidget {
   @override
@@ -9,16 +9,18 @@ class MovementsPage extends StatefulWidget {
 class _MovementsPageState extends State<MovementsPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          flex:1,
-                  child: CustomAppBar(
-            title: "Movements",
-          ),
+    return Scaffold(
+       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(
+          "Movements",
+          style: TextStyle(color: kScaffoldBackgroundColor),
         ),
-        Expanded(flex:9,child: Container(),)
-      ],
+      ),
+          body: Column(
+        children: <Widget>[Container()],
+      ),
     );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:word_and_memory/models/user.dart';
+import 'package:word_and_memory/screens/add_word_page.dart';
 import 'package:word_and_memory/screens/login_page.dart';
 import 'package:word_and_memory/screens/main_navigation_bottom_page.dart';
+import 'package:word_and_memory/screens/user_edit_profile_page.dart';
 import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 

@@ -19,7 +19,7 @@ class ReusableCard extends StatelessWidget {
           Expanded(
               flex: 1,
               child: Icon(cardIcon, color: kIconColor, size: iconSize)),
-          Expanded(flex: 2, child: Text(cardText, style: kMainPageTextStyle,textAlign: TextAlign.left,)),
+          Expanded(flex: 2, child: Text(cardText, style: kPackageDetailCardContentTextStyle,textAlign: TextAlign.left,)),
         ],
       ),
     );

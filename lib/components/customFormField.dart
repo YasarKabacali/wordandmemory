@@ -4,15 +4,21 @@ import 'package:word_and_memory/utils/constants.dart';
 class CustomFormField extends StatelessWidget {
   final String labelTextField;
   final bool closeText;
-  final Function function;
+  final Function validatorFunction;
+  final int maxLine;
 
-  CustomFormField({this.labelTextField, this.closeText,this.function});
+  CustomFormField(
+      {this.labelTextField,
+      this.closeText,
+      this.validatorFunction,
+      this.maxLine});
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 40.0,
       child: TextFormField(
-       validator: function,
+        maxLines: maxLine,
+        validator: validatorFunction,
         textAlign: TextAlign.left,
         obscureText: closeText,
         style: TextStyle(color: Colors.white, decoration: TextDecoration.none),

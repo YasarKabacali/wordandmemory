@@ -8,7 +8,6 @@ import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 import 'package:word_and_memory/screens/register_page.dart';
 import 'package:word_and_memory/utils/loading.dart';
-import 'package:word_and_memory/main.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -20,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController password = TextEditingController();
   final AuthService auth = AuthService();
   Function loginButtonRouter = () {};
-  Color loginButtonColor = Color(0xFF6C8583);
+  Color loginButtonColor = Colors.orange[100];
 
   @override
   void initState() {
@@ -32,20 +31,28 @@ class _LoginPageState extends State<LoginPage> {
   void listener() {
     if (email.text != "" && password.text != "") {
       setState(() {
-        
         loginButtonColor = kPrimaryColor;
-        loginButtonRouter = () async {
-          loading = true;
-          dynamic result =
-              await auth.signInWithEmailAndPassword(email.text, password.text);
-          if (result != null) {
-            PageRouter();
-          } else {
-            error = "hatali giris";
-          }
-        };
       });
-    } else {}
+
+      loginButtonRouter = () async {
+        setState(() {
+          loading = true;
+        });
+        dynamic result =
+            await auth.signInWithEmailAndPassword(email.text, password.text);
+        if (result == null) {
+          setState(() {
+            loading = false;
+            error = "Incorrect entry.";
+          });
+        }
+      };
+    } else {
+      setState(() {
+        loginButtonColor = Colors.orange[100];
+        loginButtonRouter = () {};
+      });
+    }
   }
 
   bool loading = false;
@@ -92,6 +99,14 @@ class _LoginPageState extends State<LoginPage> {
                           )),
                     ],
                   ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(error,
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold)),
                   kSizedBoxTwenty,
                   LoginText(
                     loginText: "Forget Password?",

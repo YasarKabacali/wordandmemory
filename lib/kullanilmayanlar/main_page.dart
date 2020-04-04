@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:word_and_memory/components/reusableCard.dart';
+import 'package:word_and_memory/kullanilmayanlar/reusableCard.dart';
 import 'package:word_and_memory/screens/package_list_page.dart';
 import 'package:word_and_memory/screens/package_create_page.dart';
-import 'package:word_and_memory/services/auth.dart';
 import 'package:word_and_memory/utils/constants.dart';
 
 class MainPage extends StatelessWidget {
-  final AuthService _auth = AuthService();
+  //final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -73,3 +72,39 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+
+/* _onAlertWithCustomContentPressed(context) {
+    Alert(
+        context: context,
+        title: "SENTENCE",
+        style: AlertStyle(
+            backgroundColor: kScaffoldBackgroundColor,
+            titleStyle: kAlertTitleTextStyle),
+        content: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              AlertTextField(
+                title: "En Sentence",
+              ),
+              AlertTextField(
+                title: "Tr Sentence",
+              ),
+            ],
+          ),
+        ),
+        buttons: [
+          DialogButton(
+            color: kPrimaryColor,
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              "ADD",
+              style: TextStyle(
+                  color: kScaffoldBackgroundColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+          )
+        ]).show();
+  } */
