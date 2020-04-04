@@ -10,7 +10,7 @@ class QuizTestPage extends StatefulWidget {
 class _QuizTestPageState extends State<QuizTestPage> {
   List<Widget> list = [];
   void deneme() {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 15; i++) {
       list.add(Icon(
         Icons.cancel,
         color: Colors.redAccent,
@@ -23,6 +23,7 @@ class _QuizTestPageState extends State<QuizTestPage> {
     deneme();
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: kScaffoldBackgroundColor),
         title: Text(
           "Quiz",
           style: kAppBarTextStyle,
@@ -38,25 +39,12 @@ class _QuizTestPageState extends State<QuizTestPage> {
             children: <Widget>[
               Expanded(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Expanded(
-                      flex: 2,
-                      child: Row(
-                        //TODO icon olayini düzelt
-                        children: list,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: Center(
-                        child: Text(
-                          "Elma",
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                      ),
+                    Text(
+                      "Elma",
+                      style: kQuizQTextStyle,
                     ),
                   ],
                 ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:word_and_memory/components/customAppBar.dart';
 import 'package:word_and_memory/models/quiz_package.dart';
 import 'package:word_and_memory/screens/quiz_test_page.dart';
 import 'package:word_and_memory/utils/constants.dart';
@@ -63,37 +62,39 @@ class _ListPackagePageState extends State<ListPackagePage> {
       ),
       body: Column(
         children: <Widget>[
-          ListView.builder(
-              itemCount: quizPackages.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: <Widget>[
-                    Card(
-                      color: kPackageListCardColor,
-                      child: ListTile(
-                        title: Text(
-                          quizPackages[index].packageName,
-                          style: kPackageListTextStyle,
-                        ),
-                        trailing: GestureDetector(
-                          child: Icon(
-                            FontAwesomeIcons.play,
-                            color: Color(0xFF639a67),
-                            size: 14,
+          Expanded(
+            child: ListView.builder(
+                itemCount: quizPackages.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: <Widget>[
+                      Card(
+                        color: kPackageListCardColor,
+                        child: ListTile(
+                          title: Text(
+                            quizPackages[index].packageName,
+                            style: kPackageListTextStyle,
                           ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => QuizTestPage()),
-                            );
-                          },
+                          trailing: GestureDetector(
+                            child: Icon(
+                              FontAwesomeIcons.play,
+                              color: Color(0xFF639a67),
+                              size: 14,
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => QuizTestPage()),
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                );
-              }),
+                    ],
+                  );
+                }),
+          ),
         ],
       ),
     );

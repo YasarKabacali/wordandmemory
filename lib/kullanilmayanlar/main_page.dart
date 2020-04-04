@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:word_and_memory/components/reusableCard.dart';
+import 'package:word_and_memory/kullanilmayanlar/reusableCard.dart';
 import 'package:word_and_memory/screens/package_list_page.dart';
 import 'package:word_and_memory/screens/package_create_page.dart';
 import 'package:word_and_memory/utils/constants.dart';

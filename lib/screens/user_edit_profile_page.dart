@@ -41,15 +41,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
           "Edit Profile",
           style: kAppBarTextStyle,
         ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            FontAwesomeIcons.times,
-            color: Color(0xFF6C8583),
-          ),
-        ),
+        iconTheme: IconThemeData(color: kScaffoldBackgroundColor),
         actions: <Widget>[
           IconButton(
             //Kullanıcı alanları degistirdiginde kaydet e basınca tetiklenecek alan
