@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:word_and_memory/components/customAppBar.dart';
 import 'package:word_and_memory/models/user.dart';
 import 'package:word_and_memory/screens/package_list_with_detail_page.dart';
 import 'package:word_and_memory/screens/user_edit_profile_page.dart';
